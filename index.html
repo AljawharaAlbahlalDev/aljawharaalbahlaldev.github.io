@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Aljawhara Albahlal</title>
+  <title>Aljawhara Albahlal — Software & AI Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #111729;
-      --accent: #3b82f6;
-      --accent-soft: rgba(59,130,246,0.12);
-      --text-main: #f9fafb;
+      --bg: #030712;
+      --bg-elevated: #050816;
+      --bg-soft: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --accent-strong: #22c55e;
+      --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --border-subtle: #1f2937;
-      --pill-bg: #020617;
-      --radius-xl: 18px;
-      --radius-full: 999px;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.8);
+      --shadow-chip: 0 1px 4px rgba(15, 23, 42, 0.7);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
     }
 
     * {
@@ -24,44 +29,47 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827, #020617 55%);
+      font-family: var(--font-main);
+      background:
+        radial-gradient(circle at top left, #1f2937 0, transparent 55%),
+        radial-gradient(circle at bottom right, #0f172a 0, transparent 55%),
+        var(--bg);
       color: var(--text-main);
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px;
     }
 
-    .page {
-      width: 100%;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+
+    .shell {
       max-width: 960px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
-      border: 1px solid rgba(148,163,184,0.15);
-      box-shadow:
-        0 22px 50px rgba(15,23,42,0.7),
-        0 0 0 1px rgba(15,23,42,0.9);
-      padding: 24px 22px 26px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 26px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
     }
 
-    @media (max-width: 800px) {
-      .page {
-        grid-template-columns: 1fr;
-        padding: 20px 18px 22px;
+    @media (max-width: 640px) {
+      .shell {
+        padding: 20px 16px 32px;
       }
     }
 
-    .top-bar {
+    /* Top nav */
+
+    .top-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
       gap: 12px;
+      margin-bottom: 28px;
     }
 
     .brand {
@@ -70,343 +78,650 @@
       gap: 10px;
     }
 
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: radial-gradient(circle at 30% 0, #38bdf8, #6366f1 33%, #ec4899 66%, #f97316);
-      position: relative;
-      overflow: hidden;
+    .brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      padding: 2px;
+      background: conic-gradient(from 220deg, #22c55e, #38bdf8, #a855f7, #22c55e);
+      flex-shrink: 0;
     }
 
-    .avatar::after {
-      content: "A";
-      position: absolute;
-      inset: 0;
+    .brand-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      background: #020617;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 20px;
-      color: rgba(15,23,42,0.9);
+      color: #e5e7eb;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-name {
-      font-size: 15px;
+    .brand-text-main {
+      font-size: 0.98rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
     }
 
-    .brand-role {
-      font-size: 12px;
+    .brand-text-sub {
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .col {
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 4px 8px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 60%),
+        radial-gradient(circle at bottom left, rgba(34, 197, 94, 0.16), transparent 60%),
+        var(--bg-elevated);
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      padding: 22px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: 720px) {
+      .hero {
+        padding: 26px 26px 24px;
+      }
+    }
+
+    .hero-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .hero-heading-block {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 4px;
     }
 
-    .card {
-      background: radial-gradient(circle at top left, rgba(59,130,246,0.18), rgba(15,23,42,0.9));
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 18px;
-      border: 1px solid rgba(148,163,184,0.28);
-      position: relative;
-      overflow: hidden;
+    .hero-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(56,189,248,0.09), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
+    .hero-role {
+      font-size: 0.92rem;
+      color: var(--text-muted);
     }
 
-    .card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .pill {
+    .hero-status {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
+      gap: 6px;
+      padding: 4px 12px 4px 6px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.85);
-      border: 1px solid rgba(55,65,81,0.9);
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+      background: rgba(22, 163, 74, 0.16);
+      border: 1px solid rgba(74, 222, 128, 0.7);
+      color: #bbf7d0;
+      font-size: 0.78rem;
+      white-space: nowrap;
     }
 
-    .pill-dot {
-      width: 7px;
-      height: 7px;
+    .hero-status-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 10px rgba(34,197,94,0.7);
-    }
-
-    .pill-kicker {
-      font-size: 11px;
-      color: #93c5fd;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
     }
 
     .hero-title {
-      font-size: 24px;
+      font-size: 1.8rem;
       line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .hero-sub {
-      font-size: 14px;
-      color: var(--text-muted);
+      margin-bottom: 10px;
       max-width: 32rem;
     }
 
-    .hero-sub strong {
-      color: #e5e7eb;
-      font-weight: 500;
+    .hero-desc {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 36rem;
     }
 
-    .chips {
+    .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 14px;
     }
 
-    .chip {
-      font-size: 11px;
-      padding: 5px 9px;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: var(--pill-bg);
-      border: 1px solid rgba(75,85,99,0.8);
-      color: var(--text-muted);
+      font-size: 0.78rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-chip);
+      white-space: nowrap;
+    }
+
+    .tag--accent {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.8);
+      color: #e0f2fe;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #6b7280;
+      margin-bottom: 4px;
     }
 
     .section-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
     }
 
     .section-body {
-      font-size: 13px;
-      color: #e5e7eb;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 16px 16px 14px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    .section-body--soft {
+      background: var(--bg-soft);
+    }
+
+    .text-block {
+      font-size: 0.9rem;
+      color: var(--text-muted);
       line-height: 1.7;
     }
 
-    .section-body strong {
-      font-weight: 600;
-      color: #ffffff;
+    .text-block + .text-block {
+      margin-top: 8px;
     }
 
-    .list {
-      list-style: none;
+    /* Chips / lists */
+
+    .chip-row {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .list li {
-      font-size: 13px;
-      color: var(--text-muted);
+    .chip {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      white-space: nowrap;
     }
 
-    .list li span {
-      color: #e5e7eb;
+    .chip--soft {
+      background: rgba(17, 24, 39, 0.96);
+      border-color: rgba(55, 65, 81, 0.9);
     }
 
-    .tags {
+    .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 8px;
     }
 
-    .tag {
-      font-size: 11px;
-      padding: 4px 9px;
+    .pill {
+      font-size: 0.78rem;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.9);
+      padding: 4px 9px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
       color: #e5e7eb;
       white-space: nowrap;
     }
 
-    .links {
+    /* Grid for sections */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Item styles (experience / projects) */
+
+    .item {
+      margin-bottom: 12px;
+    }
+
+    .item-title {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .item-sub {
+      font-size: 0.82rem;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .item-meta {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 1px;
+    }
+
+    .item ul {
+      list-style: none;
+      margin-top: 6px;
+      padding-left: 0;
+    }
+
+    .item ul li {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .item ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 0.7rem;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .divider {
+      height: 1px;
+      background: radial-gradient(circle, rgba(148, 163, 184, 0.75), transparent);
+      opacity: 0.7;
+      margin: 8px 0 10px;
+    }
+
+    /* Contact */
+
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 10px;
     }
 
-    .link-pill {
+    .contact-chip {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      padding: 7px 11px;
+      gap: 6px;
+      padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.95);
-      text-decoration: none;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
       color: #e5e7eb;
+      text-decoration: none;
+      box-shadow: var(--shadow-chip);
     }
 
-    .link-pill span.icon {
-      font-size: 13px;
-      opacity: 0.9;
+    .contact-chip span.icon {
+      font-size: 0.9rem;
+      opacity: 0.95;
     }
 
-    .link-pill:hover {
-      border-color: var(--accent);
-    }
-
-    .footer {
-      font-size: 11px;
+    .contact-note {
+      font-size: 0.82rem;
       color: var(--text-muted);
       margin-top: 8px;
-      text-align: right;
-      opacity: 0.9;
     }
 
-    @media (max-width: 500px) {
-      .hero-title {
-        font-size: 20px;
-      }
-      .page {
-        border-radius: 20px;
-      }
+    /* Footer */
+
+    .footer {
+      margin-top: 26px;
+      font-size: 0.78rem;
+      color: #4b5563;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- LEFT COLUMN -->
-    <div class="col">
-      <div class="top-bar">
-        <div class="brand">
-          <div class="avatar"></div>
-          <div class="brand-text">
-            <div class="brand-name">Aljawhara Albahlal</div>
-            <div class="brand-role">Software &amp; AI Developer</div>
-          </div>
+  <div class="shell">
+    <!-- NAVBAR -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-avatar">
+          <div class="brand-avatar-inner">A</div>
+        </div>
+        <div>
+          <div class="brand-text-main">Aljawhara Albahlal</div>
+          <div class="brand-text-sub">Software &amp; AI Developer</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-top-row">
+        <div class="hero-heading-block">
+          <div class="hero-name">Aljawhara Albahlal</div>
+          <div class="hero-role">Software &amp; AI Developer from Saudi Arabia</div>
+        </div>
+        <div class="hero-status">
+          <span class="hero-status-dot"></span>
+          <span>Available for opportunities</span>
         </div>
       </div>
 
-      <section class="card">
-        <div class="card-inner">
-          <div class="pill">
-            <span class="pill-dot"></span>
-            <span class="pill-kicker">Available for opportunities</span>
+      <h1 class="hero-title">
+        Building clean, thoughtful software for people — not just machines.
+      </h1>
+      <p class="hero-desc">
+        I’m a software developer &amp; AI enthusiast working with C#, .NET, EF Core,
+        Angular, and AI agents to turn complex government-like systems
+        into simple, human-friendly experiences.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag tag--accent">Cloud &amp; Automation</span>
+        <span class="tag">AI Agents &amp; n8n</span>
+        <span class="tag">C# / .NET / ABP</span>
+        <span class="tag">Angular &amp; TypeScript</span>
+        <span class="tag">Backend-leaning full-stack</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <div class="section-kicker">About</div>
+        <div class="section-title">What I like to work on</div>
+      </div>
+      <div class="section-body section-body--soft">
+        <p class="text-block">
+          I work at the intersection of <strong>backend engineering</strong>,
+          <strong>AI-driven automation</strong>, and <strong>simple, clear user journeys</strong>.
+          I enjoy taking complex requirements — especially government-style flows — and
+          turning them into systems that are secure, maintainable, and easy for people to use.
+        </p>
+        <p class="text-block">
+          Recently, I’ve been focusing on agentic AI flows for Absher-like services,
+          designing how AI agents understand user intent, collect missing data, and
+          trigger automations, always with a human-in-the-loop for sensitive steps.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <div class="section-kicker">Skills</div>
+        <div class="section-title">Tech I’m comfortable shipping with</div>
+      </div>
+      <div class="section-body">
+        <div class="two-col">
+          <div>
+            <div class="text-block" style="margin-bottom: 8px;">
+              <strong>Core stack</strong>
+            </div>
+            <div class="chip-row" style="margin-bottom: 14px;">
+              <span class="chip">C# / .NET</span>
+              <span class="chip">EF Core</span>
+              <span class="chip">ABP Framework</span>
+              <span class="chip">ASP.NET MVC</span>
+              <span class="chip">SQL</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">Angular &amp; TypeScript</span>
+              <span class="chip">Vue.js</span>
+            </div>
+            <div class="text-block" style="margin-bottom: 6px;">
+              <strong>AI &amp; Automation</strong>
+            </div>
+            <div class="chip-row">
+              <span class="chip chip--soft">AI Agents</span>
+              <span class="chip chip--soft">n8n workflows</span>
+              <span class="chip chip--soft">Cloud &amp; automation</span>
+            </div>
           </div>
-
-          <h1 class="hero-title">
-            Building clean, thoughtful software for people — not just machines.
-          </h1>
-
-          <p class="hero-sub">
-            I’m a <strong>software developer &amp; AI enthusiast</strong> from Saudi Arabia,
-            working with C#, Angular, and AI agents to turn complex systems into
-            smooth, human-friendly experiences.
-          </p>
-
-          <div class="chips">
-            <div class="chip">C# / .NET / ABP</div>
-            <div class="chip">Angular</div>
-            <div class="chip">AI Agents &amp; n8n</div>
-            <div class="chip">Cloud &amp; Automation</div>
+          <div>
+            <div class="text-block" style="margin-bottom: 6px;">
+              <strong>How I work</strong>
+            </div>
+            <div class="pill-list">
+              <span class="pill">Agile development</span>
+              <span class="pill">Clean architecture</span>
+              <span class="pill">Security mindset</span>
+              <span class="pill">Problem solving</span>
+              <span class="pill">Team collaboration</span>
+              <span class="pill">Continuous learning</span>
+            </div>
+            <div class="divider"></div>
+            <div class="text-block">
+              <strong>Languages:</strong> Arabic (native), English (fluent)
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="card" style="background:#020617;">
-        <div class="card-inner">
-          <div class="section-title">نبذة</div>
-          <p class="section-body">
-            أنا <strong>مطور نظم ومهتمة بالذكاء الاصطناعي</strong> من السعودية،
-            أحب بناء أنظمة تكون واضحة، موثوقة، وهادئة، تجمع بين منطق الـ Backend
-            وتجربة المستخدم البسيطة في الواجهة الأمامية.
-          </p>
-        </div>
-      </section>
-    </div>
+    <!-- EXPERIENCE & EDUCATION -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <div class="section-kicker">Experience</div>
+        <div class="section-title">Where I’ve been building things</div>
+      </div>
+      <div class="section-body section-body--soft">
+        <div class="two-col">
+          <div>
+            <div class="item">
+              <div class="item-title">System Developer</div>
+              <div class="item-sub">National Center for Government Resource Systems</div>
+              <div class="item-meta">Jun 2023 – Present · Riyadh, Saudi Arabia</div>
+              <ul>
+                <li>Develop secure, maintainable services using C#, .NET, EF Core, ABP, and Angular.</li>
+                <li>Deliver features end-to-end, from backend APIs to UI integration.</li>
+                <li>Collaborate with cross-functional teams to ship reliable, production-ready systems.</li>
+              </ul>
+            </div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="col">
-      <section class="card" style="background:#020617;">
-        <div class="card-inner">
-          <div class="section-title">Skills</div>
-          <div class="tags">
-            <span class="tag">C#, .NET</span>
-            <span class="tag">ABP Framework</span>
-            <span class="tag">Entity Framework</span>
-            <span class="tag">Angular &amp; TypeScript</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">SQL</span>
-            <span class="tag">n8n Workflows</span>
-            <span class="tag">AI Agents</span>
+            <div class="item">
+              <div class="item-title">Software Developer Trainee</div>
+              <div class="item-sub">National Center for Government Resource Systems</div>
+              <div class="item-meta">Dec 2022 – May 2023 · Riyadh, Saudi Arabia</div>
+              <ul>
+                <li>Integrated components with designers and testers for smooth releases.</li>
+                <li>Built a strong foundation in modern software engineering practices.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="item-title">Cybersecurity Incident Response Analyst</div>
+              <div class="item-sub">Virtual experience · Misk Foundation x STC</div>
+              <div class="item-meta">Dec 2022 · Riyadh, Saudi Arabia</div>
+              <ul>
+                <li>Handled security incidents and produced clear, actionable reports.</li>
+                <li>Applied proper investigation and response procedures to threats.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="item">
+              <div class="item-title">
+                B.Sc. Information Technology — Cybersecurity Track (Honors)
+              </div>
+              <div class="item-sub">King Saud University</div>
+              <div class="item-meta">2018 – 2023 · GPA 4.59 / 5</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="item">
+              <div class="item-title">Highlights</div>
+              <ul>
+                <li>Honors Degree in Information Technology — Cybersecurity.</li>
+                <li>Mobile App Developer for ICES2023 at KSU.</li>
+                <li>Top 3 finalist team — Software AG Future Disruptors (LEAP23).</li>
+                <li>Top 10 poster — SheCodes national exhibition.</li>
+              </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="item">
+              <div class="item-title">Selected Certifications</div>
+              <ul>
+                <li>Cloud Computing Engineer — Alibaba Cloud (2025).</li>
+                <li>PSD I — Scrum.org (2024).</li>
+                <li>GRCP — OCEG (2024).</li>
+                <li>ML Practitioner — SDAIA (2023).</li>
+                <li>Agile PM — PMI (2023).</li>
+                <li>Programming with .NET — MCIT (2022).</li>
+                <li>Red Hat Specialist in Virtualization — MCIT (2022).</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="card">
-        <div class="card-inner">
-          <div class="section-title">Current focus</div>
-          <ul class="list">
-            <li><span>Designing agentic AI flows for government-like services (Absher-style journeys).</span></li>
-            <li><span>Improving backend architecture with clean rules and business logic.</span></li>
-            <li><span>Building small tools that automate repetitive work for teams.</span></li>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <div class="section-kicker">Projects</div>
+        <div class="section-title">Things I’ve built or helped build</div>
+      </div>
+      <div class="section-body">
+        <div class="item">
+          <div class="item-title">Absher AI Agent — Smart Government Assistant (MVP)</div>
+          <div class="item-sub">Agentic AI flow for government-like digital services</div>
+          <ul>
+            <li>Understands user intent from natural language (e.g. renewals, bookings).</li>
+            <li>Collects missing details step-by-step with a guided conversation.</li>
+            <li>Sends structured actions through <strong>n8n workflows</strong> and webhooks.</li>
+            <li>Designed with a <strong>human-in-the-loop</strong> for sensitive operations and data.</li>
+          </ul>
+          <div class="pill-list">
+            <span class="pill">n8n</span>
+            <span class="pill">AI Agents</span>
+            <span class="pill">Webhooks</span>
+            <span class="pill">C# / APIs</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+          <div class="item-title">Cart To Go — IoT Graduation Project</div>
+          <div class="item-sub">
+            IoT-based smart cart system connected to an iOS mobile application.
+          </div>
+          <ul>
+            <li>Implemented backend logic and communication between devices and app.</li>
           </ul>
         </div>
-      </section>
 
-      <section class="card" style="background:#020617;">
-        <div class="card-inner">
-          <div class="section-title">Contact</div>
-
-          <p class="section-body">
-            لو حاب/ـة نتكلم عن العمل، الأفكار، أو تجارب الذكاء الاصطناعي والأتمتة،
-            تقدر تتواصل معي عبر:
-          </p>
-
-          <div class="links">
-            <a class="link-pill" href="mailto:aljawharaalbahlaldev@gmail.com">
-              <span class="icon">✉️</span>
-              <span>aljawharaalbahlaldev@gmail.com</span>
-            </a>
-            <a class="link-pill" href="https://www.linkedin.com/in/aljawharaalbahlaldev" target="_blank">
-              <span class="icon">💼</span>
-              <span>LinkedIn</span>
-            </a>
-            <a class="link-pill" href="https://github.com/AljawharaAlbahlalDev" target="_blank">
-              <span class="icon">💻</span>
-              <span>GitHub</span>
-            </a>
-          </div>
-
-          <div class="footer">
-            هذا موقع شخصي بسيط مستضاف على GitHub Pages.
-          </div>
+        <div class="item">
+          <div class="item-title">A Meal for You — Food Donation Platform</div>
+          <div class="item-sub">Online web application that connects donors with organizations.</div>
+          <ul>
+            <li>Contributed to full-stack implementation of the donation workflow.</li>
+          </ul>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div class="section-kicker">Contact</div>
+        <div class="section-title">Let’s talk</div>
+      </div>
+      <div class="section-body section-body--soft">
+        <p class="text-block">
+          If you’d like to talk about roles, collaboration, or AI automation ideas
+          for government-like services, I’d be happy to connect.
+        </p>
+        <div class="contact-row">
+          <a class="contact-chip" href="mailto:aljawharaalbahlaldev@gmail.com">
+            <span class="icon">📧</span>
+            <span>aljawharaalbahlaldev@gmail.com</span>
+          </a>
+          <a class="contact-chip" href="https://www.linkedin.com/in/aljawharaalbahlaldev" target="_blank" rel="noreferrer">
+            <span class="icon">🔗</span>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-chip" href="https://github.com/AljawharaAlbahlalDev" target="_blank" rel="noreferrer">
+            <span class="icon">💻</span>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <p class="contact-note">
+          This is a simple personal site hosted on GitHub Pages.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span id="year">2025</span> Aljawhara Albahlal — Built with HTML &amp; CSS.
+    </footer>
   </div>
 </body>
 </html>
