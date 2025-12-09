@@ -74,7 +74,39 @@
       fill: #fff;
     }
 
-    
+    .articles-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.article-card-mini {
+  background: var(--bg-soft);
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 14px 14px 12px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
+}
+
+.article-card-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+.article-card-desc {
+  font-size: 0.86rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.article-card-meta {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
     /* Layout */
 
     .shell {
@@ -875,37 +907,71 @@
 </section>
 
     
-    <!-- ARTICLES -->
+<!-- ARTICLES GRID -->
 <section class="section" id="articles">
   <div class="section-header">
     <div class="section-kicker">Articles</div>
-    <div class="section-title">Thoughts & Writing</div>
+    <div class="section-title">Thoughts &amp; writing</div>
   </div>
 
   <div class="section-body section-body--soft">
-    <div class="item">
-      <div class="item-title">How AI Agents Can Transform Government Services</div>
-      <div class="item-sub">A short article about agentic workflows and automation.</div>
-      <a href="#" class="pill" style="margin-top: 8px;">Read article</a>
-    </div>
+    <div class="articles-grid">
 
-    <div class="divider"></div>
+      <!-- Article 1 -->
+      <div class="article-card-mini">
+        <div class="article-card-title">
+          How AI Agents Transform Government Services
+        </div>
+        <div class="article-card-meta">
+          Agentic workflows · Government services · Automation
+        </div>
+        <div class="article-card-desc">
+          Exploring how AI agents turn complex government procedures into simple,
+          conversational experiences that can actually execute services.
+        </div>
+        <a class="pill" href="article1.html" target="_blank">
+          Read article
+        </a>
+      </div>
 
-    <div class="item">
-      <div class="item-title">Building Scalable .NET Backends: Lessons from Practice</div>
-      <div class="item-sub">Key ideas for designing maintainable backend systems.</div>
-      <a href="#" class="pill" style="margin-top: 8px;">Read article</a>
-    </div>
+      <!-- Article 2 -->
+      <div class="article-card-mini">
+        <div class="article-card-title">
+          Building Scalable .NET Backends: Lessons Learned
+        </div>
+        <div class="article-card-meta">
+          .NET · EF Core · Architecture
+        </div>
+        <div class="article-card-desc">
+          Practical ideas from real backend work: clean architecture, workflows,
+          EF Core usage, validation layers, and observability.
+        </div>
+        <a class="pill" href="article2.html" target="_blank">
+          Read article
+        </a>
+      </div>
 
-    <div class="divider"></div>
+      <!-- Article 3 -->
+      <div class="article-card-mini">
+        <div class="article-card-title">
+          Designing Simple UX for Complex Systems
+        </div>
+        <div class="article-card-meta">
+          UX · Product thinking · Complex flows
+        </div>
+        <div class="article-card-desc">
+          How to reduce friction in multi-step and complex systems by guiding users,
+          simplifying language, and revealing complexity at the right time.
+        </div>
+        <a class="pill" href="article3.html" target="_blank">
+          Read article
+        </a>
+      </div>
 
-    <div class="item">
-      <div class="item-title">From Complex Processes to Smooth UX: My Approach</div>
-      <div class="item-sub">How I think when turning complex workflows into clean experiences.</div>
-      <a href="#" class="pill" style="margin-top: 8px;">Read article</a>
     </div>
   </div>
 </section>
+
 
 
     <!-- CONTACT -->
