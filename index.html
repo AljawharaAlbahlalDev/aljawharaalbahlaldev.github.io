@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Aljawhara Albahlal — Software Developer</title>
+  <title>Aljawhara Albahlal — Software & AI Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -48,67 +48,6 @@
       text-decoration: none;
     }
 
-    .github-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: #111; /* GitHub black */
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid #222;
-      transition: background 0.2s ease, transform 0.1s ease;
-    }
-    
-    .github-btn:hover {
-      background: #000;
-      transform: translateY(-1px);
-    }
-    
-    .github-icon {
-      width: 16px;
-      height: 16px;
-      fill: #fff;
-    }
-
-    .articles-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.article-card-mini {
-  background: var(--bg-soft);
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  padding: 14px 14px 12px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
-}
-
-.article-card-title {
-  font-size: 0.98rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #e5e7eb;
-}
-
-.article-card-desc {
-  font-size: 0.86rem;
-  color: #9ca3af;
-  margin-bottom: 8px;
-}
-
-.article-card-meta {
-  font-size: 0.78rem;
-  color: #6b7280;
-  margin-bottom: 10px;
-}
-
-    /* Layout */
-
     .shell {
       max-width: 960px;
       margin: 0 auto;
@@ -121,7 +60,7 @@
       }
     }
 
-    /* Top nav */
+    /* NAVBAR */
 
     .top-nav {
       display: flex;
@@ -190,7 +129,7 @@
       color: #e5e7eb;
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
       background:
@@ -297,7 +236,51 @@
       color: #e0f2fe;
     }
 
-    /* Sections */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      background: var(--accent);
+      color: #0b1120;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      text-decoration: none;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* SECTIONS */
 
     .section {
       margin-top: 28px;
@@ -342,7 +325,19 @@
       margin-top: 8px;
     }
 
-    /* Chips / lists */
+    /* LAYOUT HELPERS */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .chip-row {
       display: flex;
@@ -380,23 +375,10 @@
       border: 1px solid rgba(55, 65, 81, 0.9);
       color: #e5e7eb;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    /* Grid for sections */
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 800px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Item styles (experience / projects) */
 
     .item {
       margin-bottom: 12px;
@@ -412,12 +394,6 @@
       font-size: 0.82rem;
       color: #9ca3af;
       margin-top: 2px;
-    }
-
-    .item-meta {
-      font-size: 0.78rem;
-      color: #6b7280;
-      margin-top: 1px;
     }
 
     .item ul {
@@ -450,7 +426,42 @@
       margin: 8px 0 10px;
     }
 
-    /* Contact */
+    /* ARTICLES GRID */
+
+    .articles-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .article-card-mini {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
+    }
+
+    .article-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .article-card-desc {
+      font-size: 0.86rem;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .article-card-meta {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
 
     .contact-row {
       display: flex;
@@ -484,13 +495,40 @@
       margin-top: 8px;
     }
 
-    /* Footer */
-
     .footer {
       margin-top: 26px;
       font-size: 0.78rem;
       color: #4b5563;
       text-align: center;
+    }
+
+    /* GitHub button (for repos if you want) */
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #222;
+      transition: background 0.2s ease, transform 0.1s ease;
+      margin-top: 6px;
+    }
+
+    .github-btn:hover {
+      background: #000;
+      transform: translateY(-1px);
+    }
+
+    .github-icon {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
     }
   </style>
 </head>
@@ -510,8 +548,8 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -521,7 +559,7 @@
       <div class="hero-top-row">
         <div class="hero-heading-block">
           <div class="hero-name">Aljawhara Albahlal</div>
-          <div class="hero-role">Software &amp; Developer from Saudi Arabia</div>
+          <div class="hero-role">Software &amp; AI Developer from Saudi Arabia</div>
         </div>
         <div class="hero-status">
           <span class="hero-status-dot"></span>
@@ -530,20 +568,27 @@
       </div>
 
       <h1 class="hero-title">
-      Motivated developer with strong ownership and a passion for learning, collaborating, and building scalable solutions.      
+        Motivated developer with strong ownership and a passion for learning, collaborating, and building scalable solutions.
       </h1>
       <p class="hero-desc">
-        I’m a software developer &amp; AI enthusiast working with C#, .NET, EF Core,
-        Angular, and AI agents to turn complex government-like systems
-        into simple, human-friendly experiences.
+        I build software that simplifies people’s lives and turns complex processes into smooth experiences — especially in government-style and AI-driven workflows.
       </p>
 
       <div class="hero-tags">
         <span class="tag tag--accent">Cloud &amp; Automation</span>
-        <span class="tag tag--accent">AI Agents &amp; n8n</span>
-        <span class="tag tag--accent">C# / .NET / ABP</span>
-        <span class="tag tag--accent">Angular &amp; TypeScript</span>
-        <span class="tag tag--accent">Backend-leaning full-stack</span>
+        <span class="tag">AI Agents &amp; n8n</span>
+        <span class="tag">C# / .NET / ABP</span>
+        <span class="tag">Angular &amp; TypeScript</span>
+      </div>
+
+      <div class="hero-actions">
+        <!-- IMPORTANT: change the href path to your real CV file name -->
+        <a class="btn-primary" href="Aljawhara_Albahlal_CV.pdf" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+        <a class="btn-ghost" href="https://github.com/AljawharaAlbahlalDev" target="_blank" rel="noreferrer">
+          View GitHub
+        </a>
       </div>
     </section>
 
@@ -551,22 +596,16 @@
     <section class="section" id="about">
       <div class="section-header">
         <div class="section-kicker">About</div>
-        <div class="section-title">What I like to work on</div>
+        <div class="section-title">A short introduction</div>
       </div>
       <div class="section-body section-body--soft">
         <p class="text-block">
-          I work at the intersection of <strong>backend engineering</strong>,
-          <strong>AI-driven automation</strong>, and <strong>simple, clear user journeys</strong>.
-          I enjoy taking complex requirements — especially government-style flows — and
-          turning them into systems that are secure, maintainable, and easy for people to use.
+          I’m a software developer and AI enthusiast based in Saudi Arabia. I enjoy working at the intersection of
+          backend engineering, automation, and simple, human-centered user experiences.
         </p>
         <p class="text-block">
-          Recently, I’ve been focusing on agentic AI flows for Absher-like services,
-          designing how AI agents understand user intent, collect missing data, and
-          trigger automations, always with a human-in-the-loop for sensitive steps.
-        </p>
-        <p class="text-block">
-          Continuously learning new technologies and tools, expanding my skills, and growing through new ideas and experiences.
+          I currently work as a System Developer at the National Center for Government Resource Systems (NCGR) in Riyadh,
+          focusing on .NET backends, Angular frontends, and AI-powered workflows inspired by real government journeys.
         </p>
       </div>
     </section>
@@ -575,7 +614,7 @@
     <section class="section" id="skills">
       <div class="section-header">
         <div class="section-kicker">Skills</div>
-        <div class="section-title">Tech I’m comfortable shipping with</div>
+        <div class="section-title">What I like to build with</div>
       </div>
       <div class="section-body">
         <div class="two-col">
@@ -603,376 +642,142 @@
             </div>
           </div>
           <div>
-            <div class="text-block" style="margin-bottom: 6px;">
-              <strong>How I work</strong>
-            </div>
-            <div class="pill-list">
-              <span class="pill">Agile development</span>
-              <span class="pill">Clean architecture</span>
-              <span class="pill">Security mindset</span>
-              <span class="pill">Problem solving</span>
-              <span class="pill">Team collaboration</span>
-              <span class="pill">Continuous learning</span>
-            </div>
-            <div class="divider"></div>
             <div class="text-block">
-              <strong>Languages:</strong> Arabic (native), English (fluent)
+              Continuously learning new technologies and tools, expanding my skills,
+              and growing through new ideas and experiences.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE & EDUCATION -->
-    <section class="section" id="experience">
+    <!-- PROJECTS (FEATURED ONLY) -->
+    <section class="section" id="projects">
       <div class="section-header">
-        <div class="section-kicker">Experience</div>
-        <div class="section-title">Where I’ve been building things</div>
+        <div class="section-kicker">Projects</div>
+        <div class="section-title">Selected work</div>
       </div>
-      <div class="section-body section-body--soft">
-        <div class="two-col">
-          <div>
-            <div class="item">
-              <div class="item-title">System Developer</div>
-              <div class="item-sub">National Center for Government Resource Systems</div>
-              <div class="item-meta">Jun 2023 – Present · Riyadh, Saudi Arabia</div>
-              <ul>
-                <li>Develop secure, maintainable services using C#, .NET, EF Core, ABP, and Angular.</li>
-                <li>Deliver features end-to-end, from backend APIs to UI integration.</li>
-                <li>Collaborate with cross-functional teams to ship reliable, production-ready systems.</li>
-              </ul>
-            </div>
 
-            <div class="item">
-              <div class="item-title">Software Developer Trainee</div>
-              <div class="item-sub">National Center for Government Resource Systems</div>
-              <div class="item-meta">Dec 2022 – May 2023 · Riyadh, Saudi Arabia</div>
-              <ul>
-                <li>Integrated components with designers and testers for smooth releases.</li>
-                <li>Built a strong foundation in modern software engineering practices.</li>
-              </ul>
-            </div>
+      <div class="section-body">
+        <!-- Absher AI Agent -->
+        <div class="item">
+          <div class="item-title">Absher AI Agent — Smart Government Assistant (MVP)</div>
+          <div class="item-sub">Agentic AI flow for government digital services</div>
+          <ul>
+            <li>Understands user intent from natural language (e.g. renewals, bookings).</li>
+            <li>Collects missing details step-by-step through a guided conversation.</li>
+            <li>Sends structured actions through <strong>n8n workflows</strong> and webhooks.</li>
+            <li>Designed with a <strong>human-in-the-loop</strong> for sensitive operations and data.</li>
+          </ul>
+        </div>
 
-            <div class="item">
-              <div class="item-title">Cybersecurity Incident Response Analyst</div>
-              <div class="item-sub">Virtual experience · Misk Foundation x STC</div>
-              <div class="item-meta">Dec 2022 · Riyadh, Saudi Arabia</div>
-              <ul>
-                <li>Handled security incidents and produced clear, actionable reports.</li>
-                <li>Applied proper investigation and response procedures to threats.</li>
-              </ul>
-            </div>
+        <div class="divider"></div>
+
+        <!-- Manpower Planning -->
+        <div class="item">
+          <div class="item-title">Manpower Planning — NCGR Internal System</div>
+          <div class="item-sub">Backend &amp; frontend modules for government-scale workforce planning</div>
+          <ul>
+            <li>Implemented features using C#, .NET, EF Core, ABP Framework, and Angular.</li>
+            <li>Built and optimized APIs, business rules, UI flows, and Excel automation tools.</li>
+            <li>Improved system reliability, validations, and user experience in production.</li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Cart To Go -->
+        <div class="item">
+          <div class="item-title">Cart To Go</div>
+          <div class="item-sub">
+            IoT-based smart cart connected to an iOS mobile application.
           </div>
+          <ul>
+            <li>Designed to reduce waiting time in supermarket queues.</li>
+            <li>Allows scanning product barcodes while shopping.</li>
+            <li>Displays item prices and totals on LCD + iOS app.</li>
+          </ul>
+        </div>
 
-          <div>
-            <div class="item">
-              <div class="item-title">
-                B.Sc. Information Technology — Cybersecurity Track (Honors)
-              </div>
-              <div class="item-sub">King Saud University</div>
-              <div class="item-meta">2018 – 2023 · GPA 4.59 / 5</div>
-            </div>
+        <div class="divider"></div>
 
-            <div class="divider"></div>
-
-            <div class="item">
-              <div class="item-title">Highlights</div>
-              <ul>
-                <li>Honors Degree in Information Technology — Cybersecurity.</li>
-                <li>Mobile App Developer for ICES2023 at KSU.</li>
-                <li>Top 3 finalist team — Software AG Future Disruptors (LEAP23).</li>
-                <li>Top 10 poster — SheCodes national exhibition.</li>
-              </ul>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="item">
-              <div class="item-title">Selected Certifications</div>
-              <ul>
-                <li>Cloud Computing Engineer — Alibaba Cloud (2025).</li>
-                <li>PSD I — Scrum.org (2024).</li>
-                <li>GRCP — OCEG (2024).</li>
-                <li>ML Practitioner — SDAIA (2023).</li>
-                <li>Agile PM — PMI (2023).</li>
-                <li>Programming with .NET — MCIT (2022).</li>
-                <li>Red Hat Specialist in Virtualization — MCIT (2022).</li>
-              </ul>
-            </div>
+        <!-- A Meal for You -->
+        <div class="item">
+          <div class="item-title">A Meal for You</div>
+          <div class="item-sub">
+            Web application for a food donation platform.
           </div>
+          <ul>
+            <li>Allows restaurants to post end-of-day leftover meals.</li>
+            <li>Enables recipients to browse and reserve meals.</li>
+            <li>Helps reduce food waste and support local communities.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="section-header">
-    <div class="section-kicker">Projects</div>
-    <div class="section-title">Things I’ve built or helped build</div>
-  </div>
-
-  <div class="section-body">
-
-    <!-- Absher AI Agent -->
-    <div class="item">
-      <div class="item-title">Absher AI Agent — Smart Government Assistant (MVP)</div>
-      <div class="item-sub">Agentic AI flow for government digital services</div>
-      <ul>
-        <li>Understands user intent from natural language (e.g. renewals, bookings).</li>
-        <li>Collects missing details step-by-step through a guided conversation.</li>
-        <li>Sends structured actions through <strong>n8n workflows</strong> and webhooks.</li>
-        <li>Designed with a <strong>human-in-the-loop</strong> for sensitive operations and data.</li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Manpower Planning -->
-    <div class="item">
-      <div class="item-title">Manpower Planning — NCGR Internal System</div>
-      <div class="item-sub">Backend &amp; frontend modules for government-scale workforce planning</div>
-      <ul>
-        <li>Implemented features using C#, .NET, EF Core, ABP Framework, and Angular.</li>
-        <li>Built and optimized APIs, business rules, UI flows, and Excel automation tools.</li>
-        <li>Improved system reliability, validations, and user experience in production.</li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- ICES2023 App -->
-    <div class="item">
-      <div class="item-title">ICES2023 — Conference Application</div>
-      <div class="item-sub">
-        Developed an application for ICES2023, held at King Saud University in Riyadh, Saudi Arabia.
-      </div>
-      <ul>
-        <li>Built an app experience tailored to conference attendees and event needs.</li>
-        <li>Focused on clarity, usability, and supporting the conference journey.</li>
-      </ul>
-<a class="github-btn" href="https://github.com/AljawharaAlbahlalDev/ICES2023" target="_blank" rel="noreferrer">
-  <svg class="github-icon" viewBox="0 0 16 16">
-    <path
-      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-      2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-      0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-      -2.69-.94-.09-.23-.48-.94-.82-1.13-.28
-      -.15-.68-.52-.01-.53.63-.01 1.08.58 
-      1.23.82.72 1.21 1.87.87 2.33.66.07 
-      -.52.28-.87.51-1.07-1.78-.2-3.64-.89
-      -3.64-3.95 0-.87.31-1.59.82-2.15-.08
-      -.2-.36-1.02.08-2.12 0 0 .67-.21 
-      2.2.82.64-.18 1.32-.27 2-.27.68 0 
-      1.36.09 2 .27 1.53-1.04 2.2-.82 
-      2.2-.82.44 1.1.16 1.92.08 2.12.51 
-      .56.82 1.27.82 2.15 0 3.07-1.87 
-      3.75-3.65 3.95.29.25.54.73.54 1.48
-      0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-      8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-    </path>
-  </svg>
-  View Repo
-</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Smart Hiker GA -->
-    <div class="item">
-      <div class="item-title">Smart Hiker Backpacking Using GA Optimization</div>
-      <div class="item-sub">
-        AI-driven Genetic Algorithm program that helps hikers customize item lists for backpacking.
-      </div>
-      <ul>
-        <li>Uses GA optimization to balance weight, utility, and user preferences.</li>
-        <li>Generates optimal packing lists based on user needs.</li>
-      </ul>
-<a class="github-btn" href="https://github.com/AljawharaAlbahlalDev/SmartHikerBackpacking" target="_blank" rel="noreferrer">
-  <svg class="github-icon" viewBox="0 0 16 16">
-    <path
-      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-      2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-      0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-      -2.69-.94-.09-.23-.48-.94-.82-1.13-.28
-      -.15-.68-.52-.01-.53.63-.01 1.08.58 
-      1.23.82.72 1.21 1.87.87 2.33.66.07 
-      -.52.28-.87.51-1.07-1.78-.2-3.64-.89
-      -3.64-3.95 0-.87.31-1.59.82-2.15-.08
-      -.2-.36-1.02.08-2.12 0 0 .67-.21 
-      2.2.82.64-.18 1.32-.27 2-.27.68 0 
-      1.36.09 2 .27 1.53-1.04 2.2-.82 
-      2.2-.82.44 1.1.16 1.92.08 2.12.51 
-      .56.82 1.27.82 2.15 0 3.07-1.87 
-      3.75-3.65 3.95.29.25.54.73.54 1.48
-      0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-      8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-    </path>
-  </svg>
-  View Repo
-</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Cart To Go -->
-    <div class="item">
-      <div class="item-title">Cart To Go</div>
-      <div class="item-sub">
-        IoT-based smart cart connected to an iOS mobile application.
-      </div>
-      <ul>
-        <li>Designed to reduce waiting time in supermarket queues.</li>
-        <li>Allows scanning product barcodes while shopping.</li>
-        <li>Displays item prices and totals on LCD + iOS app.</li>
-      </ul>
-<a class="github-btn" href="https://github.com/AljawharaAlbahlalDev/2022-GP2-04" target="_blank" rel="noreferrer">
-  <svg class="github-icon" viewBox="0 0 16 16">
-    <path
-      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-      2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-      0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-      -2.69-.94-.09-.23-.48-.94-.82-1.13-.28
-      -.15-.68-.52-.01-.53.63-.01 1.08.58 
-      1.23.82.72 1.21 1.87.87 2.33.66.07 
-      -.52.28-.87.51-1.07-1.78-.2-3.64-.89
-      -3.64-3.95 0-.87.31-1.59.82-2.15-.08
-      -.2-.36-1.02.08-2.12 0 0 .67-.21 
-      2.2.82.64-.18 1.32-.27 2-.27.68 0 
-      1.36.09 2 .27 1.53-1.04 2.2-.82 
-      2.2-.82.44 1.1.16 1.92.08 2.12.51 
-      .56.82 1.27.82 2.15 0 3.07-1.87 
-      3.75-3.65 3.95.29.25.54.73.54 1.48
-      0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-      8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-    </path>
-  </svg>
-  View Repo
-</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- A Meal for You -->
-    <div class="item">
-      <div class="item-title">A Meal for You</div>
-      <div class="item-sub">
-        Web application for food donation where restaurants list leftover meals.
-      </div>
-      <ul>
-        <li>Allows restaurants to post end-of-day meals.</li>
-        <li>Enables recipients to browse and reserve meals.</li>
-        <li>Helps reduce food waste and support communities in need.</li>
-      </ul>
-      <a class="github-btn" href="https://github.com/AljawharaAlbahlalDev/AMealforYou" target="_blank" rel="noreferrer">
-        <svg class="github-icon" viewBox="0 0 16 16">
-          <path
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-            2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-            -2.69-.94-.09-.23-.48-.94-.82-1.13-.28
-            -.15-.68-.52-.01-.53.63-.01 1.08.58 
-            1.23.82.72 1.21 1.87.87 2.33.66.07 
-            -.52.28-.87.51-1.07-1.78-.2-3.64-.89
-            -3.64-3.95 0-.87.31-1.59.82-2.15-.08
-            -.2-.36-1.02.08-2.12 0 0 .67-.21 
-            2.2.82.64-.18 1.32-.27 2-.27.68 0 
-            1.36.09 2 .27 1.53-1.04 2.2-.82 
-            2.2-.82.44 1.1.16 1.92.08 2.12.51 
-            .56.82 1.27.82 2.15 0 3.07-1.87 
-            3.75-3.65 3.95.29.25.54.73.54 1.48
-            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-            8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-          </path>
-        </svg>
-        View Repo
-      </a>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Grow -->
-    <div class="item">
-      <div class="item-title">Grow</div>
-      <div class="item-sub">
-        UI design for a plant-care app that helps users care for their plants.
-      </div>
-      <ul>
-        <li>Reminds users to water plants on time.</li>
-        <li>Allows searching plants and learning care instructions.</li>
-        <li>Concept for plant detection using device camera.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-    
-<!-- ARTICLES GRID -->
-<section class="section" id="articles">
-  <div class="section-header">
-    <div class="section-kicker">Articles</div>
-    <div class="section-title">Thoughts &amp; writing</div>
-  </div>
-
-  <div class="section-body section-body--soft">
-    <div class="articles-grid">
-
-      <!-- Article 1 -->
-      <div class="article-card-mini">
-        <div class="article-card-title">
-          How AI Agents Transform Government Services
-        </div>
-        <div class="article-card-meta">
-          Agentic workflows · Government services · Automation
-        </div>
-        <div class="article-card-desc">
-          Exploring how AI agents turn complex government procedures into simple,
-          conversational experiences that can actually execute services.
-        </div>
-        <a class="pill" href="article1.html" target="_blank">
-          Read article
-        </a>
+    <!-- ARTICLES GRID -->
+    <section class="section" id="articles">
+      <div class="section-header">
+        <div class="section-kicker">Articles</div>
+        <div class="section-title">Thoughts &amp; writing</div>
       </div>
 
-      <!-- Article 2 -->
-      <div class="article-card-mini">
-        <div class="article-card-title">
-          Building Scalable .NET Backends: Lessons Learned
+      <div class="section-body section-body--soft">
+        <div class="articles-grid">
+          <!-- Article 1 -->
+          <div class="article-card-mini">
+            <div class="article-card-title">
+              How AI Agents Transform Government Services
+            </div>
+            <div class="article-card-meta">
+              Agentic workflows · Government services · Automation
+            </div>
+            <div class="article-card-desc">
+              Exploring how AI agents turn complex government procedures into simple,
+              conversational experiences that can actually execute services.
+            </div>
+            <a class="pill" href="article1.html" target="_blank">
+              Read article
+            </a>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="article-card-mini">
+            <div class="article-card-title">
+              Building Scalable .NET Backends: Lessons Learned
+            </div>
+            <div class="article-card-meta">
+              .NET · EF Core · Architecture
+            </div>
+            <div class="article-card-desc">
+              Practical ideas from real backend work: clean architecture, workflows,
+              EF Core usage, validation layers, and observability.
+            </div>
+            <a class="pill" href="article2.html" target="_blank">
+              Read article
+            </a>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="article-card-mini">
+            <div class="article-card-title">
+              Designing Simple UX for Complex Systems
+            </div>
+            <div class="article-card-meta">
+              UX · Product thinking · Complex flows
+            </div>
+            <div class="article-card-desc">
+              How to reduce friction in multi-step and complex systems by guiding users,
+              simplifying language, and revealing complexity at the right time.
+            </div>
+            <a class="pill" href="article3.html" target="_blank">
+              Read article
+            </a>
+          </div>
         </div>
-        <div class="article-card-meta">
-          .NET · EF Core · Architecture
-        </div>
-        <div class="article-card-desc">
-          Practical ideas from real backend work: clean architecture, workflows,
-          EF Core usage, validation layers, and observability.
-        </div>
-        <a class="pill" href="article2.html" target="_blank">
-          Read article
-        </a>
       </div>
-
-      <!-- Article 3 -->
-      <div class="article-card-mini">
-        <div class="article-card-title">
-          Designing Simple UX for Complex Systems
-        </div>
-        <div class="article-card-meta">
-          UX · Product thinking · Complex flows
-        </div>
-        <div class="article-card-desc">
-          How to reduce friction in multi-step and complex systems by guiding users,
-          simplifying language, and revealing complexity at the right time.
-        </div>
-        <a class="pill" href="article3.html" target="_blank">
-          Read article
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
+    </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
@@ -982,8 +787,8 @@
       </div>
       <div class="section-body section-body--soft">
         <p class="text-block">
-          If you’d like to talk about roles, collaboration, or AI automation ideas
-          for government-like services, I’d be happy to connect.
+          Open to opportunities, collaborations, and experiments around AI agents,
+          backend-heavy work, and thoughtful product experiences.
         </p>
         <div class="contact-row">
           <a class="contact-chip" href="mailto:aljawharaalbahlaldev@gmail.com">
@@ -995,40 +800,18 @@
             <span>LinkedIn</span>
           </a>
           <a class="contact-chip" href="https://github.com/AljawharaAlbahlalDev" target="_blank" rel="noreferrer">
-            <span class="icon">
-
-           <svg class="github-icon" viewBox="0 0 16 16">
-          <path
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-            2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49
-            -2.69-.94-.09-.23-.48-.94-.82-1.13-.28
-            -.15-.68-.52-.01-.53.63-.01 1.08.58 
-            1.23.82.72 1.21 1.87.87 2.33.66.07 
-            -.52.28-.87.51-1.07-1.78-.2-3.64-.89
-            -3.64-3.95 0-.87.31-1.59.82-2.15-.08
-            -.2-.36-1.02.08-2.12 0 0 .67-.21 
-            2.2.82.64-.18 1.32-.27 2-.27.68 0 
-            1.36.09 2 .27 1.53-1.04 2.2-.82 
-            2.2-.82.44 1.1.16 1.92.08 2.12.51 
-            .56.82 1.27.82 2.15 0 3.07-1.87 
-            3.75-3.65 3.95.29.25.54.73.54 1.48
-            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-            8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-          </path>
-        </svg>
-              </span>
+            <span class="icon">💻</span>
             <span>GitHub</span>
           </a>
         </div>
         <p class="contact-note">
-          This is a simple personal site hosted on GitHub Pages.
+          You can also download my full CV for more details about my experience, education, and certifications.
         </p>
       </div>
     </section>
 
     <footer class="footer">
-      © <span id="year">2025</span> Aljawhara Albahlal — Built with HTML &amp; CSS.
+      © 2025 Aljawhara Albahlal — Built with HTML &amp; CSS.
     </footer>
   </div>
 </body>
